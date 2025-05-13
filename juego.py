@@ -1,27 +1,41 @@
-import random
-def jugar():
+import random 
+
+while True:
     
-    numero_secreto = random.randint(1, 100)
-    
-    adivinado = False
-    
-    print("¡Bienvenido al juego del número secreto!")
-    print("Adivina el número del 1 al 100")
+    print ("    💥JUEGO NUMERO SECRETO💥    ")
+    opc = int(input("Ingrese una opcion:\n1 ➖ Iniciar juego: \n2 ➖ Terminar juego: \n : "))
 
-    while not adivinado:
+    if opc == 1:
 
-        intento = int(input("Ingresa un número: "))
+        def jugar():
 
-        if intento == numero_secreto:
-            print("🎉 ¡Felicidades! Adivinaste el número.")
+            numero_secreto = random.randint(1, 500)
+            adivinado = False
+            intentos = 0
+            max_intentos = 10
 
-            adivinado = True
-            
-        elif intento < numero_secreto:
-            print("🔼 El número es mayor.")
+            print("¡Bienvenido al juego del número secreto!")
+            print("Adivina el número del 1 al 500😉")
+            print("🙌 ¡SUERTE! 🙌")
 
-        else:
-            print("🔽 El número es menor.")
+            while not adivinado:
+                intento = int(input("- Ingresa un número: "))
+                intentos += 1 
 
-if __name__ == "__main__":
+                if intentos >= 10: 
+                    break
+
+                if intento == numero_secreto:
+                    print("🎉 ¡Felicidades! Adivinaste el número.😁")
+                    adivinado = True
+                elif intento < numero_secreto:
+                    print("🔼 El número es mayor.🤣")
+                else:
+                    print("🔽 El número es menor.🤣")
+
+            print(f"\nTotal de intentos: {intentos} 😎")
+
+    if opc == 2:
+        break
+
     jugar()
